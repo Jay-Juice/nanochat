@@ -1,6 +1,15 @@
+import pytest
 import torch
 
-from nanochat.grpo import compute_grpo_loss, compute_group_advantages, get_rollout_batch_plan
+from nanochat.grpo import (
+    compute_grpo_loss,
+    compute_group_advantages,
+    get_grpo_checkpoint_dir,
+    get_rollout_batch_plan,
+    should_save_grpo_checkpoint,
+    validate_grpo_batch_config,
+    validate_grpo_sampling_config,
+)
 
 
 def test_group_advantages_are_standardized():
@@ -145,3 +154,60 @@ def test_masked_tokens_do_not_affect_loss():
 
     assert torch.allclose(loss, torch.tensor(-1.0))
     assert torch.equal(metrics["clip_fraction"], torch.tensor(0.0))
+
+
+def test_batch_config_requires_world_size_divisibility():
+    with pytest.raises(ValueError, match="world size"):
+        validate_grpo_batch_config(
+            rollout_batch_size=24,
+            policy_batch_size=12,
+            num_samples=16,
+            device_batch_size=8,
+            world_size=8,
+        )
+
+
+def test_batch_config_requires_complete_sampling_microbatches():
+    with pytest.raises(ValueError, match="num samples"):
+        validate_grpo_batch_config(
+            rollout_batch_size=32,
+            policy_batch_size=16,
+            num_samples=15,
+            device_batch_size=8,
+            world_size=8,
+        )
+
+
+def test_sampling_config_matches_recorded_policy_logprobs():
+    validate_grpo_sampling_config(temperature=1.0, top_k=0)
+
+
+def test_sampling_config_rejects_temperature_transform():
+    with pytest.raises(ValueError, match="temperature"):
+        validate_grpo_sampling_config(temperature=0.8, top_k=0)
+
+
+def test_sampling_config_rejects_top_k_truncation():
+    with pytest.raises(ValueError, match="top-k"):
+        validate_grpo_sampling_config(temperature=1.0, top_k=50)
+
+
+def test_checkpoint_steps_count_completed_policy_updates():
+    assert not should_save_grpo_checkpoint(completed_steps=29, total_steps=467, save_every=30)
+    assert should_save_grpo_checkpoint(completed_steps=30, total_steps=467, save_every=30)
+    assert should_save_grpo_checkpoint(completed_steps=467, total_steps=467, save_every=30)
+
+
+def test_output_checkpoint_tag_cannot_overwrite_existing_model(tmp_path):
+    checkpoint_dir = tmp_path / "chatrl_checkpoints" / "existing-grpo"
+    checkpoint_dir.mkdir(parents=True)
+    (checkpoint_dir / "model_30.pt").touch()
+
+    with pytest.raises(FileExistsError, match="existing-grpo"):
+        get_grpo_checkpoint_dir(tmp_path, "existing-grpo")
+
+
+def test_output_checkpoint_tag_returns_unused_directory(tmp_path):
+    checkpoint_dir = get_grpo_checkpoint_dir(tmp_path, "new-grpo")
+
+    assert checkpoint_dir == str(tmp_path / "chatrl_checkpoints" / "new-grpo")

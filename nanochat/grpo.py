@@ -2,6 +2,9 @@
 Small tensor helpers for Group Relative Policy Optimization (GRPO).
 """
 
+import glob
+import os
+
 import torch
 
 
@@ -39,6 +42,51 @@ def get_rollout_batch_plan(
         min(updates_per_rollout, total_updates - start)
         for start in range(0, total_updates, updates_per_rollout)
     ]
+
+
+def validate_grpo_batch_config(
+    rollout_batch_size,
+    policy_batch_size,
+    num_samples,
+    device_batch_size,
+    world_size,
+):
+    """Validate batch relationships required by synchronous distributed GRPO."""
+    values = (rollout_batch_size, policy_batch_size, num_samples, device_batch_size, world_size)
+    if any(value <= 0 for value in values):
+        raise ValueError("GRPO batch sizes and world size must be positive")
+    if rollout_batch_size % policy_batch_size != 0:
+        raise ValueError("rollout batch size must be divisible by policy batch size")
+    if rollout_batch_size % world_size or policy_batch_size % world_size:
+        raise ValueError("rollout and policy batch sizes must be divisible by world size")
+    if num_samples < 2:
+        raise ValueError("GRPO requires at least two samples per question")
+    if num_samples % device_batch_size:
+        raise ValueError("num samples must be divisible by device batch size")
+
+
+def validate_grpo_sampling_config(temperature, top_k):
+    """Require rollout sampling to match the raw policy log probabilities."""
+    if temperature != 1.0:
+        raise ValueError("GRPO training temperature must be 1.0 to match recorded policy log probabilities")
+    if top_k not in (None, 0):
+        raise ValueError("GRPO training top-k must be disabled to match recorded policy log probabilities")
+
+
+def should_save_grpo_checkpoint(completed_steps, total_steps, save_every):
+    """Return whether the policy after completed_steps updates should be saved."""
+    return (
+        completed_steps == total_steps
+        or save_every > 0 and completed_steps > 0 and completed_steps % save_every == 0
+    )
+
+
+def get_grpo_checkpoint_dir(base_dir, output_model_tag):
+    """Return a new GRPO checkpoint directory without overwriting prior runs."""
+    checkpoint_dir = os.path.join(base_dir, "chatrl_checkpoints", output_model_tag)
+    if glob.glob(os.path.join(checkpoint_dir, "model_*.pt")):
+        raise FileExistsError(f"Output model tag already contains checkpoints: {output_model_tag}")
+    return checkpoint_dir
 
 
 def compute_grpo_loss(
