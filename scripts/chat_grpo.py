@@ -42,8 +42,8 @@ from nanochat.engine import Engine
 from nanochat.grpo import (
     compute_grpo_loss,
     compute_group_advantages,
-    get_grpo_checkpoint_dir,
     get_rollout_batch_plan,
+    reserve_grpo_checkpoint_dir,
     should_save_grpo_checkpoint,
     validate_grpo_batch_config,
     validate_grpo_sampling_config,
@@ -81,7 +81,7 @@ parser.add_argument("--kl-beta", type=float, default=0.04, help="KL coefficient 
 parser.add_argument("--embedding-lr", type=float, default=0.2, help="learning rate for embedding parameters (Adam)")
 parser.add_argument("--unembedding-lr", type=float, default=0.004, help="learning rate for unembedding parameters (Adam)")
 parser.add_argument("--matrix-lr", type=float, default=0.02, help="learning rate for matrix parameters (Muon)")
-parser.add_argument("--weight-decay", type=float, default=0.0, help="weight decay for Adam parameter groups")
+parser.add_argument("--weight-decay", type=float, default=0.0, help="weight decay for Muon matrix parameters")
 parser.add_argument("--init-lr-frac", type=float, default=0.05, help="initial LR as fraction of each base LR")
 # Evaluation / checkpointing
 parser.add_argument("--eval-every", type=int, default=60, help="evaluate pass@k every N policy updates (-1 disables)")
@@ -114,7 +114,17 @@ validate_grpo_batch_config(
     ddp_world_size,
 )
 
-checkpoint_dir = get_grpo_checkpoint_dir(get_base_dir(), args.output_model_tag)
+reservation = [None]
+if master_process:
+    try:
+        reservation[0] = (reserve_grpo_checkpoint_dir(get_base_dir(), args.output_model_tag), None)
+    except FileExistsError as exc:
+        reservation[0] = (None, str(exc))
+if ddp:
+    dist.broadcast_object_list(reservation, src=0)
+checkpoint_dir, reservation_error = reservation[0]
+if reservation_error is not None:
+    raise FileExistsError(reservation_error)
 
 use_dummy_wandb = args.run == "dummy" or not master_process
 wandb_run = DummyWandb() if use_dummy_wandb else wandb.init(
@@ -170,6 +180,7 @@ example_iterator = itertools.cycle(rank_indices)
 def collect_rollout_group(example_idx, rollout_idx):
     """Generate and score all responses for one question."""
     assistant_end = tokenizer.encode_special("<|assistant_end|>")
+    terminal_tokens = {assistant_end, tokenizer.get_bos_token_id()}
     conversation = train_task[example_idx]
     prompt_tokens = tokenizer.render_for_completion(conversation)
     prefix_length = len(prompt_tokens)
@@ -187,13 +198,17 @@ def collect_rollout_group(example_idx, rollout_idx):
             temperature=args.temperature,
             top_k=args.top_k,
             seed=seed,
+            include_terminal_tokens=True,
         )
         generated_sequences.extend(sequences)
         generated_masks.extend(masks)
 
     rewards = []
     for sequence in generated_sequences:
-        generated_text = tokenizer.decode(sequence[prefix_length:])
+        completion_tokens = sequence[prefix_length:]
+        if completion_tokens and completion_tokens[-1] in terminal_tokens:
+            completion_tokens = completion_tokens[:-1]
+        generated_text = tokenizer.decode(completion_tokens)
         rewards.append(train_task.reward(conversation, generated_text))
 
     max_length = max(len(sequence) for sequence in generated_sequences)

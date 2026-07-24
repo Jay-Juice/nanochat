@@ -46,8 +46,9 @@ python -m scripts.chat_grpo --help
 ```
 
 The output tag is intentionally different from the existing REINFORCE
-checkpoints. The GRPO script also refuses to start if the output tag already
-contains a `model_*.pt` checkpoint.
+checkpoints. Rank 0 atomically reserves the output directory, and the GRPO
+script refuses to start if that tag already exists, including an empty or
+partially written directory.
 
 ## Train
 

@@ -65,6 +65,11 @@ Before any update from a rollout batch, the trainer records:
 - `old_logp`: sampled-token log probabilities from the rollout policy.
 - `ref_logp`: sampled-token log probabilities from the frozen SFT reference.
 
+Training samples from the policy's full distribution with `temperature=1.0`
+and top-k disabled. These values are enforced because `old_logp` is computed
+from the model's raw full-softmax distribution; applying a temperature or
+top-k transform only during generation would invalidate the importance ratio.
+
 For each sampled token:
 
 ```text
@@ -81,8 +86,9 @@ token_loss = -policy_objective + beta * reference_kl
 ```
 
 `epsilon` defaults to `0.2`. `beta` defaults to `0.04`, matching the original
-DeepSeekMath GRPO experiment. Log-ratios are clamped before exponentiation for
-numerical stability.
+DeepSeekMath GRPO experiment. Log-ratios are not hard-clamped in the
+optimization path because doing so would zero corrective gradients outside the
+clamp range.
 
 The original sequence-level GRPO normalization is used: token losses are
 averaged within each response, then averaged across responses. Forced tool
@@ -140,7 +146,8 @@ The script validates:
 - batch sizes are positive and divisible by the distributed world size;
 - rollout batch size is divisible by policy batch size;
 - number of samples is divisible by device batch size;
-- the output tag does not already contain checkpoints;
+- training uses `temperature=1.0` with top-k disabled;
+- the output tag does not already exist and is atomically reserved by rank 0;
 - input and output tags are logged separately.
 
 Optimizer defaults remain consistent with `chat_rl.py`. The D32 A800 command
@@ -165,6 +172,10 @@ Checkpoint metadata records the model config, algorithm name, input SFT
 checkpoint, and complete training configuration. Optimizer state remains
 omitted, matching nanochat's existing short RL stage.
 
+Step numbers denote completed optimizer updates. Evaluation and checkpointing
+at step 30 therefore refer to the same policy parameters. A complete one-epoch
+run saves its final policy as step 467.
+
 ## Testing
 
 `tests/test_grpo.py` covers:
@@ -176,10 +187,14 @@ omitted, matching nanochat's existing short RL stage.
 - sequence-level normalization gives equal response weight despite different
   response lengths;
 - masked prompt, forced, and padding positions do not affect loss or metrics.
+- invalid distributed batch and transformed sampling configurations fail fast;
+- checkpoint cadence counts completed policy updates and existing output tags
+  are not overwritten.
 
 Local verification consists of the focused unit tests, the existing test suite,
-Python compilation, and CLI help. A short remote CPU or single-GPU smoke run is
-performed after deployment; the user starts the full eight-GPU training run.
+Python compilation, and CLI help in the remote `nanochat` Conda environment.
+The user starts all training runs, including short smoke runs and the full
+eight-GPU run.
 
 ## Version Control And Deployment
 

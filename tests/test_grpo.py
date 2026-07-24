@@ -4,8 +4,8 @@ import torch
 from nanochat.grpo import (
     compute_grpo_loss,
     compute_group_advantages,
-    get_grpo_checkpoint_dir,
     get_rollout_batch_plan,
+    reserve_grpo_checkpoint_dir,
     should_save_grpo_checkpoint,
     validate_grpo_batch_config,
     validate_grpo_sampling_config,
@@ -156,6 +156,38 @@ def test_masked_tokens_do_not_affect_loss():
     assert torch.equal(metrics["clip_fraction"], torch.tensor(0.0))
 
 
+def test_large_negative_policy_log_ratio_keeps_corrective_gradient():
+    current = torch.tensor([[-25.0]], requires_grad=True)
+
+    loss, _ = compute_grpo_loss(
+        current,
+        torch.zeros_like(current),
+        current.detach(),
+        torch.tensor([1.0]),
+        torch.ones_like(current),
+        kl_beta=0.0,
+    )
+    loss.backward()
+
+    assert current.grad.item() < 0
+
+
+def test_large_reference_log_ratio_keeps_kl_gradient():
+    current = torch.tensor([[0.0]], requires_grad=True)
+
+    loss, _ = compute_grpo_loss(
+        current,
+        current.detach(),
+        torch.tensor([[25.0]]),
+        torch.tensor([0.0]),
+        torch.ones_like(current),
+        kl_beta=1.0,
+    )
+    loss.backward()
+
+    assert current.grad.item() < 0
+
+
 def test_batch_config_requires_world_size_divisibility():
     with pytest.raises(ValueError, match="world size"):
         validate_grpo_batch_config(
@@ -204,10 +236,28 @@ def test_output_checkpoint_tag_cannot_overwrite_existing_model(tmp_path):
     (checkpoint_dir / "model_30.pt").touch()
 
     with pytest.raises(FileExistsError, match="existing-grpo"):
-        get_grpo_checkpoint_dir(tmp_path, "existing-grpo")
+        reserve_grpo_checkpoint_dir(tmp_path, "existing-grpo")
 
 
-def test_output_checkpoint_tag_returns_unused_directory(tmp_path):
-    checkpoint_dir = get_grpo_checkpoint_dir(tmp_path, "new-grpo")
+def test_output_checkpoint_tag_cannot_reuse_empty_directory(tmp_path):
+    checkpoint_dir = tmp_path / "chatrl_checkpoints" / "empty-grpo"
+    checkpoint_dir.mkdir(parents=True)
+
+    with pytest.raises(FileExistsError, match="empty-grpo"):
+        reserve_grpo_checkpoint_dir(tmp_path, "empty-grpo")
+
+
+def test_output_checkpoint_tag_cannot_reuse_metadata_only_directory(tmp_path):
+    checkpoint_dir = tmp_path / "chatrl_checkpoints" / "partial-grpo"
+    checkpoint_dir.mkdir(parents=True)
+    (checkpoint_dir / "meta_30.json").touch()
+
+    with pytest.raises(FileExistsError, match="partial-grpo"):
+        reserve_grpo_checkpoint_dir(tmp_path, "partial-grpo")
+
+
+def test_output_checkpoint_tag_atomically_reserves_unused_directory(tmp_path):
+    checkpoint_dir = reserve_grpo_checkpoint_dir(tmp_path, "new-grpo")
 
     assert checkpoint_dir == str(tmp_path / "chatrl_checkpoints" / "new-grpo")
+    assert (tmp_path / "chatrl_checkpoints" / "new-grpo").is_dir()

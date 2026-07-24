@@ -2,7 +2,6 @@
 Small tensor helpers for Group Relative Policy Optimization (GRPO).
 """
 
-import glob
 import os
 
 import torch
@@ -81,11 +80,13 @@ def should_save_grpo_checkpoint(completed_steps, total_steps, save_every):
     )
 
 
-def get_grpo_checkpoint_dir(base_dir, output_model_tag):
-    """Return a new GRPO checkpoint directory without overwriting prior runs."""
+def reserve_grpo_checkpoint_dir(base_dir, output_model_tag):
+    """Atomically reserve a new GRPO checkpoint directory."""
     checkpoint_dir = os.path.join(base_dir, "chatrl_checkpoints", output_model_tag)
-    if glob.glob(os.path.join(checkpoint_dir, "model_*.pt")):
-        raise FileExistsError(f"Output model tag already contains checkpoints: {output_model_tag}")
+    try:
+        os.makedirs(checkpoint_dir)
+    except FileExistsError:
+        raise FileExistsError(f"Output model tag already exists: {output_model_tag}")
     return checkpoint_dir
 
 
@@ -100,14 +101,14 @@ def compute_grpo_loss(
 ):
     """Compute the original sequence-normalized clipped GRPO objective."""
     mask = response_mask.to(current_logp.dtype)
-    log_ratio = (current_logp - old_logp).clamp(-20.0, 20.0)
+    log_ratio = current_logp - old_logp
     ratio = log_ratio.exp()
     token_advantages = advantages.unsqueeze(-1)
     unclipped = ratio * token_advantages
     clipped = ratio.clamp(1 - clip_epsilon, 1 + clip_epsilon) * token_advantages
     policy_objective = torch.minimum(unclipped, clipped)
 
-    ref_log_ratio = (ref_logp - current_logp).clamp(-20.0, 20.0)
+    ref_log_ratio = ref_logp - current_logp
     reference_kl = ref_log_ratio.exp() - ref_log_ratio - 1
     token_loss = -policy_objective + kl_beta * reference_kl
 

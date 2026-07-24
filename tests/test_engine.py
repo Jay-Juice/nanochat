@@ -246,6 +246,29 @@ def test_num_samples_count():
         assert len(results) == num_samples, f"Expected {num_samples} sequences from {num_samples} samples, got {len(results)}"
 
 
+def test_generate_batch_can_preserve_sampled_terminal_action():
+    model = MockModel()
+    tokenizer = ByteTokenizer()
+    engine = Engine(model, tokenizer)
+    prompt = [tokenizer.get_bos_token_id(), 72]
+    assistant_end = tokenizer.encode_special("<|assistant_end|>")
+
+    def generate_terminal(*args, **kwargs):
+        yield [assistant_end], [1]
+
+    engine.generate = generate_terminal
+    default_results, default_masks = engine.generate_batch(prompt)
+    results, masks = engine.generate_batch(
+        prompt,
+        include_terminal_tokens=True,
+    )
+
+    assert default_results == [prompt]
+    assert default_masks == [[0, 0]]
+    assert results == [prompt + [assistant_end]]
+    assert masks == [[0, 0, 1]]
+
+
 def test_different_seeds_introduce_variation_when_temperature_nonzero():
     """With temperature > 0, different seeds should introduce sampling variation."""
     model = MockModel()
