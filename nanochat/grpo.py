@@ -7,6 +7,88 @@ import os
 import torch
 
 
+def _validate_reward_groups(reward_groups):
+    if not reward_groups:
+        raise ValueError("reward groups must contain at least one question")
+    num_samples = len(reward_groups[0])
+    if num_samples == 0:
+        raise ValueError("reward groups must contain at least one sample")
+    for rewards in reward_groups:
+        if len(rewards) != num_samples:
+            raise ValueError("reward groups must have the same number of samples")
+        if any(reward not in (0, 1) for reward in rewards):
+            raise ValueError("rewards must be binary values")
+    return num_samples
+
+
+def summarize_reward_groups(reward_groups):
+    """Summarize binary outcome-reward groups from multiple questions."""
+    num_samples = _validate_reward_groups(reward_groups)
+    num_questions = len(reward_groups)
+    correct_counts = [sum(rewards) for rewards in reward_groups]
+    group_counts = {
+        "all_wrong": sum(count == 0 for count in correct_counts),
+        "mixed": sum(0 < count < num_samples for count in correct_counts),
+        "all_correct": sum(count == num_samples for count in correct_counts),
+    }
+    return {
+        "num_questions": num_questions,
+        "num_samples": num_samples,
+        "group_counts": group_counts,
+        "group_fractions": {
+            name: count / num_questions
+            for name, count in group_counts.items()
+        },
+        "mean_reward": sum(correct_counts) / (num_questions * num_samples),
+        "pass_at_k": {
+            str(k): sum(any(rewards[:k]) for rewards in reward_groups) / num_questions
+            for k in range(1, num_samples + 1)
+        },
+    }
+
+
+def _index_reward_records(records):
+    if not records:
+        raise ValueError("reward records must contain at least one question")
+    indexed = {}
+    reward_groups = []
+    for record in records:
+        idx = record["idx"]
+        if idx in indexed:
+            raise ValueError(f"duplicate question index: {idx}")
+        rewards = record["rewards"]
+        indexed[idx] = rewards
+        reward_groups.append(rewards)
+    num_samples = _validate_reward_groups(reward_groups)
+    return indexed, num_samples
+
+
+def compare_reward_records(left_records, right_records):
+    """Compare questions solved at least once in two diagnostic runs."""
+    left, left_num_samples = _index_reward_records(left_records)
+    right, right_num_samples = _index_reward_records(right_records)
+    if left.keys() != right.keys():
+        raise ValueError("diagnostic runs must contain the same question indices")
+    if left_num_samples != right_num_samples:
+        raise ValueError("diagnostic runs must use matching sample counts")
+
+    left_solved = {idx for idx, rewards in left.items() if any(rewards)}
+    right_solved = {idx for idx, rewards in right.items() if any(rewards)}
+    intersection = left_solved & right_solved
+    union = left_solved | right_solved
+    return {
+        "num_questions": len(left),
+        "num_samples": left_num_samples,
+        "left_solved": len(left_solved),
+        "right_solved": len(right_solved),
+        "intersection": len(intersection),
+        "union": len(union),
+        "left_only": len(left_solved - right_solved),
+        "right_only": len(right_solved - left_solved),
+        "jaccard": len(intersection) / len(union) if union else 1.0,
+    }
+
+
 def _masked_token_mean(values, mask):
     return (values * mask).sum() / mask.sum().clamp_min(1)
 

@@ -2,14 +2,109 @@ import pytest
 import torch
 
 from nanochat.grpo import (
+    compare_reward_records,
     compute_grpo_loss,
     compute_group_advantages,
     get_rollout_batch_plan,
     reserve_grpo_checkpoint_dir,
     should_save_grpo_checkpoint,
+    summarize_reward_groups,
     validate_grpo_batch_config,
     validate_grpo_sampling_config,
 )
+
+
+def test_reward_group_summary_counts_signal_types_and_pass_at_k():
+    reward_groups = [
+        [0] * 16,
+        [1] + [0] * 15,
+        [0] * 15 + [1],
+        [1] * 16,
+    ]
+
+    summary = summarize_reward_groups(reward_groups)
+
+    assert summary["num_questions"] == 4
+    assert summary["num_samples"] == 16
+    assert summary["group_counts"] == {
+        "all_wrong": 1,
+        "mixed": 2,
+        "all_correct": 1,
+    }
+    assert summary["group_fractions"] == {
+        "all_wrong": 0.25,
+        "mixed": 0.5,
+        "all_correct": 0.25,
+    }
+    assert summary["mean_reward"] == pytest.approx(18 / 64)
+    assert summary["pass_at_k"]["1"] == 0.5
+    assert summary["pass_at_k"]["8"] == 0.5
+    assert summary["pass_at_k"]["16"] == 0.75
+
+
+@pytest.mark.parametrize(
+    "reward_groups, message",
+    [
+        ([], "at least one"),
+        ([[0, 1], [1]], "same number"),
+        ([[0, 2]], "binary"),
+    ],
+)
+def test_reward_group_summary_rejects_invalid_groups(reward_groups, message):
+    with pytest.raises(ValueError, match=message):
+        summarize_reward_groups(reward_groups)
+
+
+def test_reward_record_comparison_reports_solved_set_overlap():
+    left = [
+        {"idx": 0, "rewards": [1, 0]},
+        {"idx": 1, "rewards": [0, 0]},
+        {"idx": 2, "rewards": [0, 1]},
+    ]
+    right = [
+        {"idx": 0, "rewards": [0, 1]},
+        {"idx": 1, "rewards": [1, 0]},
+        {"idx": 2, "rewards": [0, 0]},
+    ]
+
+    comparison = compare_reward_records(left, right)
+
+    assert comparison == {
+        "num_questions": 3,
+        "num_samples": 2,
+        "left_solved": 2,
+        "right_solved": 2,
+        "intersection": 1,
+        "union": 3,
+        "left_only": 1,
+        "right_only": 1,
+        "jaccard": pytest.approx(1 / 3),
+    }
+
+
+@pytest.mark.parametrize(
+    "left, right, message",
+    [
+        (
+            [{"idx": 0, "rewards": [0, 1]}],
+            [{"idx": 1, "rewards": [0, 1]}],
+            "question indices",
+        ),
+        (
+            [{"idx": 0, "rewards": [0, 1]}, {"idx": 0, "rewards": [1, 0]}],
+            [{"idx": 0, "rewards": [0, 1]}],
+            "duplicate",
+        ),
+        (
+            [{"idx": 0, "rewards": [0, 1]}],
+            [{"idx": 0, "rewards": [0, 1, 0]}],
+            "sample counts",
+        ),
+    ],
+)
+def test_reward_record_comparison_rejects_incompatible_records(left, right, message):
+    with pytest.raises(ValueError, match=message):
+        compare_reward_records(left, right)
 
 
 def test_group_advantages_are_standardized():
