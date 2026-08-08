@@ -5,6 +5,21 @@
 
 nanochat is the simplest experimental harness for training LLMs. It is designed to run on a single GPU node, the code is minimal/hackable, and it covers all major LLM stages including tokenization, pretraining, finetuning, evaluation, inference, and a chat UI. For example, you can train your own GPT-2 capability LLM (which cost ~$43,000 to train in 2019) for only $48 (~2 hours of 8XH100 GPU node) and then talk to it in a familiar ChatGPT-like web UI. On a spot instance, the total cost can be closer to ~$15. More generally, nanochat is configured out of the box to train an entire miniseries of compute-optimal models by setting one single complexity dial: `--depth`, the number of layers in the GPT transformer model (GPT-2 capability happens to be approximately depth 26). All other hyperparameters (the width of the transformer, number of heads, learning rate adjustments, training horizons, weight decays, ...) are calculated automatically in an optimal way.
 
+## Jay-Juice fork
+
+This fork tracks [karpathy/nanochat](https://github.com/karpathy/nanochat) and
+adds a compact set of post-training experiments used for reproducible 8xA800
+runs:
+
+- standard GRPO training on GSM8K ([runbook](docs/GRPO_A800.md));
+- GSM8K RL diagnostics ([report](docs/GSM8K_RL_DIAGNOSTICS_2026-08-01.md));
+- vanilla On-Policy Distillation with a larger nanochat teacher
+  ([runbook](docs/OPD_A800.md));
+- optional custom math data and separate output model tags for SFT.
+
+`master` is the stable integrated branch. Completed experiment versions are
+recorded with Git tags; temporary feature branches are deleted after merge.
+
 For questions about the repo, I recommend either using [DeepWiki](https://deepwiki.com/karpathy/nanochat) from Devin/Cognition to ask questions about the repo, or use the [Discussions tab](https://github.com/karpathy/nanochat/discussions), or come by the [#nanochat](https://discord.com/channels/1020383067459821711/1427295580895314031) channel on Discord.
 
 ## Time-to-GPT-2 Leaderboard
