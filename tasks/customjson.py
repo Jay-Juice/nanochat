@@ -63,3 +63,15 @@ class CustomJSON(Task):
         }
         return conversation
 
+
+def load_optional_custom_json(filepath):
+    """Load an optional JSONL task, failing clearly for invalid input."""
+    if not filepath:
+        return None
+    if not os.path.isfile(filepath):
+        raise FileNotFoundError(f"Optional JSONL dataset not found: {filepath}")
+    task = CustomJSON(filepath=filepath)
+    if len(task) == 0:
+        raise ValueError(f"Optional JSONL dataset is empty: {filepath}")
+    return task
+
