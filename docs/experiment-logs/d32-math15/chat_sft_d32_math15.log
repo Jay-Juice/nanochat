@@ -1,0 +1,1205 @@
+Autodetected device type: cuda
+2026-08-06 12:00:30,134 - nanochat.common - INFO - Distributed world size: 8
+COMPUTE_DTYPE: torch.bfloat16 (auto-detected: CUDA SM 80 (bf16 supported))
+GPU: NVIDIA A800 80GB PCIe | Peak FLOPS (BF16): 3.12e+14
+WARNING: Flash Attention 3 not available, using PyTorch SDPA fallback. Training will be less efficient.
+2026-08-06 12:00:30,135 - nanochat.checkpoint_manager - INFO - Loading model from /media/ubuntu/D1/zsj/nanochat/nanochat/nanochat_cache/base_checkpoints/d32-a800-bf16-L with step 6400
+2026-08-06 12:00:43,153 - nanochat.checkpoint_manager - INFO - Building model with config: {'sequence_len': 2048, 'vocab_size': 32768, 'n_layer': 32, 'n_head': 16, 'n_kv_head': 16, 'n_embd': 2048, 'window_pattern': 'L'}
+Inherited max_seq_len=2048 from pretrained checkpoint
+Using device_batch_size=8
+Inherited total_batch_size=2097152 from pretrained checkpoint
+Inherited embedding_lr=0.3 from pretrained checkpoint
+Inherited unembedding_lr=0.008 from pretrained checkpoint
+Inherited matrix_lr=0.02 from pretrained checkpoint
+Tokens / micro-batch / rank: 8 x 2048 = 16,384
+Tokens / micro-batch: 131,072
+Total batch size 2,097,152 => gradient accumulation steps: 16
+Scaling the LR for the AdamW parameters ∝1/√(2048/768) = 0.612372
+2026-08-06 12:00:44,617 - nanochat.checkpoint_manager - INFO - Loading optimizer state from /media/ubuntu/D1/zsj/nanochat/nanochat/nanochat_cache/base_checkpoints/d32-a800-bf16-L/optim_006400_rank0.pt
+Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,022 - datasets.load - WARNING - Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,023 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,072 - datasets.load - WARNING - Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,072 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,111 - datasets.load - WARNING - Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,111 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,157 - datasets.load - WARNING - Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,158 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,217 - datasets.load - WARNING - Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,218 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,273 - datasets.load - WARNING - Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,274 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,385 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,386 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,395 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,395 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,408 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,408 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,408 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,408 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,412 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,413 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,416 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,416 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,421 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,422 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,424 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,425 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,428 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,429 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,429 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,430 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,432 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,432 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,435 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,436 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,437 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,438 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,441 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,442 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,445 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,446 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,449 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,449 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Loaded optimizer state from pretrained checkpoint (momentum buffers only, LRs reset)
+Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,459 - datasets.load - WARNING - Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,460 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,468 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,469 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,471 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,472 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,478 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,479 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,479 - datasets.load - WARNING - Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,479 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,480 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,480 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,483 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,484 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,486 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,487 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,488 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,489 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,494 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,494 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,494 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,494 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,498 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,498 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,501 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,502 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,505 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,506 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,547 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,548 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,556 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,557 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,563 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,564 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,571 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,572 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,572 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,573 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,575 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,575 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,578 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,579 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,581 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,582 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,582 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,583 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,589 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,589 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,596 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,597 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,600 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,601 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,604 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,605 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,608 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,609 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,758 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,759 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,766 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,767 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,774 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,774 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,781 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,781 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,785 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,785 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,788 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,789 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,792 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,792 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,792 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,793 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,802 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,803 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,810 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,810 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,818 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,818 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,821 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,822 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,825 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,826 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:48,829 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:48,830 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:51,753 - datasets.load - WARNING - Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:51,754 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:51,773 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:51,774 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:51,783 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:51,784 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:51,847 - datasets.load - WARNING - Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:51,849 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:51,855 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:51,855 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:51,859 - datasets.load - WARNING - Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:51,860 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:51,860 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:51,861 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:51,866 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:51,866 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:51,871 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:51,871 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:51,898 - datasets.load - WARNING - Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:51,899 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:51,904 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:51,905 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:51,909 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:51,910 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:51,924 - datasets.load - WARNING - Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:51,925 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:51,931 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:51,931 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:51,935 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:51,936 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Training mixture: 1,262,037 rows (MMLU x3, GSM8K x4, Math SFT 190,278)
+Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:52,037 - datasets.load - WARNING - Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:52,038 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:52,043 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:52,044 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:52,048 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:52,049 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:52,209 - datasets.load - WARNING - Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:52,210 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:52,216 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:52,217 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:52,222 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:52,222 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:52,277 - datasets.load - WARNING - Using the latest cached version of the dataset since HuggingFaceTB/smol-smoltalk couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:52,278 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'default' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/HuggingFaceTB___smol-smoltalk/default/0.0.0/f73fe857d519ff6ac5af2ea67c4d3834da7b8bcc (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:52,285 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:52,285 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 12:00:52,290 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 12:00:52,291 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Step 00000 | Validation bpb: 0.3837
+step 00001 (0.35%) | loss: 0.758706 | lrm: 1.00 | dt: 55165.56ms | tok/sec: 38,015 | mfu: 17.78 | epoch: 1 | total time: 0.00m
+step 00002 (0.71%) | loss: 0.950743 | lrm: 1.00 | dt: 17239.60ms | tok/sec: 121,647 | mfu: 56.91 | epoch: 1 | total time: 0.00m
+step 00003 (1.11%) | loss: 1.037273 | lrm: 1.00 | dt: 17640.07ms | tok/sec: 118,885 | mfu: 55.62 | epoch: 1 | total time: 0.00m
+step 00004 (1.49%) | loss: 1.029046 | lrm: 1.00 | dt: 17875.38ms | tok/sec: 117,320 | mfu: 54.89 | epoch: 1 | total time: 0.00m
+step 00005 (1.85%) | loss: 1.046303 | lrm: 1.00 | dt: 17917.32ms | tok/sec: 117,046 | mfu: 54.76 | epoch: 1 | total time: 0.00m
+step 00006 (2.20%) | loss: 1.052508 | lrm: 1.00 | dt: 18030.17ms | tok/sec: 116,313 | mfu: 54.41 | epoch: 1 | total time: 0.00m
+step 00007 (2.55%) | loss: 1.060189 | lrm: 1.00 | dt: 17994.49ms | tok/sec: 116,544 | mfu: 54.52 | epoch: 1 | total time: 0.00m
+step 00008 (2.92%) | loss: 1.072371 | lrm: 1.00 | dt: 17960.68ms | tok/sec: 116,763 | mfu: 54.63 | epoch: 1 | total time: 0.00m
+step 00009 (3.29%) | loss: 1.066290 | lrm: 1.00 | dt: 18013.69ms | tok/sec: 116,419 | mfu: 54.46 | epoch: 1 | total time: 0.00m
+step 00010 (3.67%) | loss: 1.043802 | lrm: 1.00 | dt: 18071.17ms | tok/sec: 116,049 | mfu: 54.29 | epoch: 1 | total time: 0.00m
+step 00011 (4.02%) | loss: 1.028113 | lrm: 1.00 | dt: 18015.90ms | tok/sec: 116,405 | mfu: 54.46 | epoch: 1 | total time: 0.30m
+step 00012 (4.38%) | loss: 1.050795 | lrm: 1.00 | dt: 18003.45ms | tok/sec: 116,486 | mfu: 54.50 | epoch: 1 | total time: 0.60m
+step 00013 (4.76%) | loss: 1.027575 | lrm: 1.00 | dt: 17989.44ms | tok/sec: 116,576 | mfu: 54.54 | epoch: 1 | total time: 0.90m
+step 00014 (5.13%) | loss: 1.030135 | lrm: 1.00 | dt: 18130.71ms | tok/sec: 115,668 | mfu: 54.11 | epoch: 1 | total time: 1.20m
+step 00015 (5.49%) | loss: 1.013032 | lrm: 1.00 | dt: 18023.52ms | tok/sec: 116,356 | mfu: 54.43 | epoch: 1 | total time: 1.50m
+step 00016 (5.88%) | loss: 1.000426 | lrm: 1.00 | dt: 17992.81ms | tok/sec: 116,554 | mfu: 54.53 | epoch: 1 | total time: 1.80m
+step 00017 (6.26%) | loss: 0.993292 | lrm: 1.00 | dt: 18070.13ms | tok/sec: 116,056 | mfu: 54.29 | epoch: 1 | total time: 2.10m
+step 00018 (6.62%) | loss: 0.983327 | lrm: 1.00 | dt: 18109.99ms | tok/sec: 115,800 | mfu: 54.17 | epoch: 1 | total time: 2.41m
+step 00019 (6.99%) | loss: 0.966905 | lrm: 1.00 | dt: 18010.62ms | tok/sec: 116,439 | mfu: 54.47 | epoch: 1 | total time: 2.71m
+step 00020 (7.34%) | loss: 0.976266 | lrm: 1.00 | dt: 18045.63ms | tok/sec: 116,213 | mfu: 54.37 | epoch: 1 | total time: 3.01m
+step 00021 (7.71%) | loss: 0.982312 | lrm: 1.00 | dt: 18106.02ms | tok/sec: 115,826 | mfu: 54.19 | epoch: 1 | total time: 3.31m
+step 00022 (8.08%) | loss: 0.962391 | lrm: 1.00 | dt: 17994.05ms | tok/sec: 116,546 | mfu: 54.52 | epoch: 1 | total time: 3.61m
+step 00023 (8.46%) | loss: 0.944370 | lrm: 1.00 | dt: 18113.35ms | tok/sec: 115,779 | mfu: 54.16 | epoch: 1 | total time: 3.91m
+step 00024 (8.84%) | loss: 0.925859 | lrm: 1.00 | dt: 18057.61ms | tok/sec: 116,136 | mfu: 54.33 | epoch: 1 | total time: 4.21m
+step 00025 (9.23%) | loss: 0.928167 | lrm: 1.00 | dt: 17965.89ms | tok/sec: 116,729 | mfu: 54.61 | epoch: 1 | total time: 4.51m
+step 00026 (9.59%) | loss: 0.923519 | lrm: 1.00 | dt: 18065.55ms | tok/sec: 116,085 | mfu: 54.31 | epoch: 1 | total time: 4.81m
+step 00027 (9.98%) | loss: 0.913338 | lrm: 1.00 | dt: 18000.44ms | tok/sec: 116,505 | mfu: 54.50 | epoch: 1 | total time: 5.11m
+step 00028 (10.35%) | loss: 0.902472 | lrm: 1.00 | dt: 18040.09ms | tok/sec: 116,249 | mfu: 54.38 | epoch: 1 | total time: 5.41m
+step 00029 (10.73%) | loss: 0.902111 | lrm: 1.00 | dt: 18016.30ms | tok/sec: 116,403 | mfu: 54.46 | epoch: 1 | total time: 5.71m
+step 00030 (11.07%) | loss: 0.912456 | lrm: 1.00 | dt: 18017.19ms | tok/sec: 116,397 | mfu: 54.45 | epoch: 1 | total time: 6.01m
+step 00031 (11.44%) | loss: 0.912023 | lrm: 1.00 | dt: 18070.91ms | tok/sec: 116,051 | mfu: 54.29 | epoch: 1 | total time: 6.31m
+step 00032 (11.79%) | loss: 0.900451 | lrm: 1.00 | dt: 17977.49ms | tok/sec: 116,654 | mfu: 54.57 | epoch: 1 | total time: 6.61m
+step 00033 (12.14%) | loss: 0.886573 | lrm: 1.00 | dt: 18039.25ms | tok/sec: 116,254 | mfu: 54.39 | epoch: 1 | total time: 6.91m
+step 00034 (12.50%) | loss: 0.885262 | lrm: 1.00 | dt: 18022.03ms | tok/sec: 116,366 | mfu: 54.44 | epoch: 1 | total time: 7.21m
+step 00035 (12.89%) | loss: 0.873201 | lrm: 1.00 | dt: 18021.74ms | tok/sec: 116,367 | mfu: 54.44 | epoch: 1 | total time: 7.52m
+step 00036 (13.26%) | loss: 0.868930 | lrm: 1.00 | dt: 18032.26ms | tok/sec: 116,300 | mfu: 54.41 | epoch: 1 | total time: 7.82m
+step 00037 (13.62%) | loss: 0.872248 | lrm: 1.00 | dt: 18041.21ms | tok/sec: 116,242 | mfu: 54.38 | epoch: 1 | total time: 8.12m
+step 00038 (13.99%) | loss: 0.867193 | lrm: 1.00 | dt: 18040.17ms | tok/sec: 116,249 | mfu: 54.38 | epoch: 1 | total time: 8.42m
+step 00039 (14.34%) | loss: 0.863720 | lrm: 1.00 | dt: 18055.03ms | tok/sec: 116,153 | mfu: 54.34 | epoch: 1 | total time: 8.72m
+step 00040 (14.71%) | loss: 0.856470 | lrm: 1.00 | dt: 17989.56ms | tok/sec: 116,576 | mfu: 54.54 | epoch: 1 | total time: 9.02m
+step 00041 (15.08%) | loss: 0.861667 | lrm: 1.00 | dt: 18023.71ms | tok/sec: 116,355 | mfu: 54.43 | epoch: 1 | total time: 9.32m
+step 00042 (15.44%) | loss: 0.861370 | lrm: 1.00 | dt: 18032.55ms | tok/sec: 116,298 | mfu: 54.41 | epoch: 1 | total time: 9.62m
+step 00043 (15.79%) | loss: 0.868544 | lrm: 1.00 | dt: 18020.03ms | tok/sec: 116,378 | mfu: 54.45 | epoch: 1 | total time: 9.92m
+step 00044 (16.18%) | loss: 0.870407 | lrm: 1.00 | dt: 18001.26ms | tok/sec: 116,500 | mfu: 54.50 | epoch: 1 | total time: 10.22m
+step 00045 (16.55%) | loss: 0.873908 | lrm: 1.00 | dt: 18026.59ms | tok/sec: 116,336 | mfu: 54.43 | epoch: 1 | total time: 10.52m
+step 00046 (16.91%) | loss: 0.879968 | lrm: 1.00 | dt: 18053.31ms | tok/sec: 116,164 | mfu: 54.34 | epoch: 1 | total time: 10.82m
+step 00047 (17.27%) | loss: 0.871761 | lrm: 1.00 | dt: 18119.63ms | tok/sec: 115,739 | mfu: 54.15 | epoch: 1 | total time: 11.12m
+step 00048 (17.64%) | loss: 0.870677 | lrm: 1.00 | dt: 18069.24ms | tok/sec: 116,061 | mfu: 54.30 | epoch: 1 | total time: 11.42m
+step 00049 (17.99%) | loss: 0.849169 | lrm: 1.00 | dt: 18031.25ms | tok/sec: 116,306 | mfu: 54.41 | epoch: 1 | total time: 11.72m
+step 00050 (18.34%) | loss: 0.856720 | lrm: 1.00 | dt: 18011.35ms | tok/sec: 116,435 | mfu: 54.47 | epoch: 1 | total time: 12.02m
+step 00051 (18.71%) | loss: 0.847598 | lrm: 1.00 | dt: 18015.02ms | tok/sec: 116,411 | mfu: 54.46 | epoch: 1 | total time: 12.32m
+step 00052 (19.07%) | loss: 0.836468 | lrm: 1.00 | dt: 18049.52ms | tok/sec: 116,188 | mfu: 54.36 | epoch: 1 | total time: 12.63m
+step 00053 (19.40%) | loss: 0.825570 | lrm: 1.00 | dt: 18054.31ms | tok/sec: 116,157 | mfu: 54.34 | epoch: 1 | total time: 12.93m
+step 00054 (19.76%) | loss: 0.830538 | lrm: 1.00 | dt: 18071.42ms | tok/sec: 116,048 | mfu: 54.29 | epoch: 1 | total time: 13.23m
+step 00055 (20.11%) | loss: 0.822112 | lrm: 1.00 | dt: 18040.73ms | tok/sec: 116,245 | mfu: 54.38 | epoch: 1 | total time: 13.53m
+step 00056 (20.49%) | loss: 0.807018 | lrm: 1.00 | dt: 18048.06ms | tok/sec: 116,198 | mfu: 54.36 | epoch: 1 | total time: 13.83m
+step 00057 (20.82%) | loss: 0.809291 | lrm: 1.00 | dt: 17943.72ms | tok/sec: 116,873 | mfu: 54.68 | epoch: 1 | total time: 14.13m
+step 00058 (21.19%) | loss: 0.801370 | lrm: 1.00 | dt: 18050.14ms | tok/sec: 116,184 | mfu: 54.35 | epoch: 1 | total time: 14.43m
+step 00059 (21.56%) | loss: 0.789729 | lrm: 1.00 | dt: 18028.90ms | tok/sec: 116,321 | mfu: 54.42 | epoch: 1 | total time: 14.73m
+step 00060 (21.93%) | loss: 0.795393 | lrm: 1.00 | dt: 18051.38ms | tok/sec: 116,176 | mfu: 54.35 | epoch: 1 | total time: 15.03m
+step 00061 (22.30%) | loss: 0.793632 | lrm: 1.00 | dt: 18038.81ms | tok/sec: 116,257 | mfu: 54.39 | epoch: 1 | total time: 15.33m
+step 00062 (22.67%) | loss: 0.781461 | lrm: 1.00 | dt: 18014.78ms | tok/sec: 116,412 | mfu: 54.46 | epoch: 1 | total time: 15.63m
+step 00063 (23.04%) | loss: 0.787161 | lrm: 1.00 | dt: 18017.59ms | tok/sec: 116,394 | mfu: 54.45 | epoch: 1 | total time: 15.93m
+step 00064 (23.42%) | loss: 0.792836 | lrm: 1.00 | dt: 18023.89ms | tok/sec: 116,354 | mfu: 54.43 | epoch: 1 | total time: 16.23m
+step 00065 (23.78%) | loss: 0.804413 | lrm: 1.00 | dt: 17979.46ms | tok/sec: 116,641 | mfu: 54.57 | epoch: 1 | total time: 16.53m
+step 00066 (24.13%) | loss: 0.806214 | lrm: 1.00 | dt: 18028.00ms | tok/sec: 116,327 | mfu: 54.42 | epoch: 1 | total time: 16.83m
+step 00067 (24.49%) | loss: 0.798385 | lrm: 1.00 | dt: 18033.47ms | tok/sec: 116,292 | mfu: 54.40 | epoch: 1 | total time: 17.13m
+step 00068 (24.87%) | loss: 0.794340 | lrm: 1.00 | dt: 17996.30ms | tok/sec: 116,532 | mfu: 54.52 | epoch: 1 | total time: 17.43m
+step 00069 (25.22%) | loss: 0.783825 | lrm: 1.00 | dt: 18051.64ms | tok/sec: 116,175 | mfu: 54.35 | epoch: 1 | total time: 17.73m
+step 00070 (25.60%) | loss: 0.791923 | lrm: 1.00 | dt: 17978.70ms | tok/sec: 116,646 | mfu: 54.57 | epoch: 1 | total time: 18.03m
+step 00071 (25.97%) | loss: 0.781366 | lrm: 1.00 | dt: 18040.11ms | tok/sec: 116,249 | mfu: 54.38 | epoch: 1 | total time: 18.33m
+step 00072 (26.35%) | loss: 0.784792 | lrm: 1.00 | dt: 17998.81ms | tok/sec: 116,516 | mfu: 54.51 | epoch: 1 | total time: 18.63m
+step 00073 (26.71%) | loss: 0.786765 | lrm: 1.00 | dt: 17974.84ms | tok/sec: 116,671 | mfu: 54.58 | epoch: 1 | total time: 18.93m
+step 00074 (27.06%) | loss: 0.781104 | lrm: 1.00 | dt: 18001.40ms | tok/sec: 116,499 | mfu: 54.50 | epoch: 1 | total time: 19.23m
+step 00075 (27.41%) | loss: 0.764546 | lrm: 1.00 | dt: 17960.19ms | tok/sec: 116,766 | mfu: 54.63 | epoch: 1 | total time: 19.53m
+step 00076 (27.78%) | loss: 0.769870 | lrm: 1.00 | dt: 18029.36ms | tok/sec: 116,318 | mfu: 54.42 | epoch: 1 | total time: 19.83m
+step 00077 (28.15%) | loss: 0.768219 | lrm: 1.00 | dt: 17983.66ms | tok/sec: 116,614 | mfu: 54.56 | epoch: 1 | total time: 20.13m
+step 00078 (28.53%) | loss: 0.769298 | lrm: 1.00 | dt: 18020.84ms | tok/sec: 116,373 | mfu: 54.44 | epoch: 1 | total time: 20.43m
+step 00079 (28.92%) | loss: 0.764373 | lrm: 1.00 | dt: 18049.65ms | tok/sec: 116,187 | mfu: 54.36 | epoch: 1 | total time: 20.73m
+step 00080 (29.29%) | loss: 0.775646 | lrm: 1.00 | dt: 17923.51ms | tok/sec: 117,005 | mfu: 54.74 | epoch: 1 | total time: 21.03m
+step 00081 (29.64%) | loss: 0.791592 | lrm: 1.00 | dt: 17977.55ms | tok/sec: 116,653 | mfu: 54.57 | epoch: 1 | total time: 21.33m
+step 00082 (30.03%) | loss: 0.785618 | lrm: 1.00 | dt: 18020.85ms | tok/sec: 116,373 | mfu: 54.44 | epoch: 1 | total time: 21.63m
+step 00083 (30.39%) | loss: 0.775529 | lrm: 1.00 | dt: 17930.69ms | tok/sec: 116,958 | mfu: 54.72 | epoch: 1 | total time: 21.93m
+step 00084 (30.76%) | loss: 0.769150 | lrm: 1.00 | dt: 17991.03ms | tok/sec: 116,566 | mfu: 54.53 | epoch: 1 | total time: 22.23m
+step 00085 (31.13%) | loss: 0.764380 | lrm: 1.00 | dt: 17922.56ms | tok/sec: 117,011 | mfu: 54.74 | epoch: 1 | total time: 22.53m
+step 00086 (31.52%) | loss: 0.754269 | lrm: 1.00 | dt: 17920.53ms | tok/sec: 117,025 | mfu: 54.75 | epoch: 1 | total time: 22.83m
+step 00087 (31.89%) | loss: 0.745195 | lrm: 1.00 | dt: 17940.46ms | tok/sec: 116,895 | mfu: 54.69 | epoch: 1 | total time: 23.13m
+step 00088 (32.25%) | loss: 0.765119 | lrm: 1.00 | dt: 18033.25ms | tok/sec: 116,293 | mfu: 54.41 | epoch: 1 | total time: 23.43m
+step 00089 (32.61%) | loss: 0.761109 | lrm: 1.00 | dt: 17909.27ms | tok/sec: 117,098 | mfu: 54.78 | epoch: 1 | total time: 23.73m
+step 00090 (32.97%) | loss: 0.755375 | lrm: 1.00 | dt: 18003.10ms | tok/sec: 116,488 | mfu: 54.50 | epoch: 1 | total time: 24.03m
+step 00091 (33.34%) | loss: 0.732373 | lrm: 1.00 | dt: 18015.83ms | tok/sec: 116,406 | mfu: 54.46 | epoch: 1 | total time: 24.33m
+step 00092 (33.70%) | loss: 0.739842 | lrm: 1.00 | dt: 18009.22ms | tok/sec: 116,448 | mfu: 54.48 | epoch: 1 | total time: 24.63m
+step 00093 (34.08%) | loss: 0.731066 | lrm: 1.00 | dt: 17995.14ms | tok/sec: 116,539 | mfu: 54.52 | epoch: 1 | total time: 24.93m
+step 00094 (34.42%) | loss: 0.743163 | lrm: 1.00 | dt: 17922.25ms | tok/sec: 117,013 | mfu: 54.74 | epoch: 1 | total time: 25.23m
+step 00095 (34.80%) | loss: 0.752014 | lrm: 1.00 | dt: 17975.65ms | tok/sec: 116,666 | mfu: 54.58 | epoch: 1 | total time: 25.53m
+step 00096 (35.17%) | loss: 0.765001 | lrm: 1.00 | dt: 18049.36ms | tok/sec: 116,189 | mfu: 54.36 | epoch: 1 | total time: 25.83m
+step 00097 (35.54%) | loss: 0.763611 | lrm: 1.00 | dt: 17991.05ms | tok/sec: 116,566 | mfu: 54.53 | epoch: 1 | total time: 26.13m
+step 00098 (35.92%) | loss: 0.757766 | lrm: 1.00 | dt: 17998.46ms | tok/sec: 116,518 | mfu: 54.51 | epoch: 1 | total time: 26.43m
+step 00099 (36.31%) | loss: 0.748723 | lrm: 1.00 | dt: 17930.33ms | tok/sec: 116,961 | mfu: 54.72 | epoch: 1 | total time: 26.72m
+step 00100 (36.66%) | loss: 0.756032 | lrm: 1.00 | dt: 18074.84ms | tok/sec: 116,026 | mfu: 54.28 | epoch: 1 | total time: 27.03m
+step 00101 (37.04%) | loss: 0.742499 | lrm: 1.00 | dt: 17967.16ms | tok/sec: 116,721 | mfu: 54.61 | epoch: 1 | total time: 27.33m
+step 00102 (37.42%) | loss: 0.733114 | lrm: 1.00 | dt: 17996.74ms | tok/sec: 116,529 | mfu: 54.52 | epoch: 1 | total time: 27.63m
+step 00103 (37.80%) | loss: 0.743624 | lrm: 1.00 | dt: 17956.11ms | tok/sec: 116,793 | mfu: 54.64 | epoch: 1 | total time: 27.92m
+step 00104 (38.16%) | loss: 0.748628 | lrm: 1.00 | dt: 18021.74ms | tok/sec: 116,367 | mfu: 54.44 | epoch: 1 | total time: 28.22m
+step 00105 (38.53%) | loss: 0.752936 | lrm: 1.00 | dt: 17941.47ms | tok/sec: 116,888 | mfu: 54.68 | epoch: 1 | total time: 28.52m
+step 00106 (38.87%) | loss: 0.765992 | lrm: 1.00 | dt: 17982.29ms | tok/sec: 116,623 | mfu: 54.56 | epoch: 1 | total time: 28.82m
+step 00107 (39.23%) | loss: 0.753334 | lrm: 1.00 | dt: 17965.96ms | tok/sec: 116,729 | mfu: 54.61 | epoch: 1 | total time: 29.12m
+step 00108 (39.62%) | loss: 0.751247 | lrm: 1.00 | dt: 18002.55ms | tok/sec: 116,491 | mfu: 54.50 | epoch: 1 | total time: 29.42m
+step 00109 (39.99%) | loss: 0.746676 | lrm: 1.00 | dt: 17914.41ms | tok/sec: 117,065 | mfu: 54.77 | epoch: 1 | total time: 29.72m
+step 00110 (40.35%) | loss: 0.749266 | lrm: 1.00 | dt: 17987.17ms | tok/sec: 116,591 | mfu: 54.54 | epoch: 1 | total time: 30.02m
+step 00111 (40.70%) | loss: 0.753157 | lrm: 1.00 | dt: 17922.64ms | tok/sec: 117,011 | mfu: 54.74 | epoch: 1 | total time: 30.32m
+step 00112 (41.06%) | loss: 0.753038 | lrm: 1.00 | dt: 17953.53ms | tok/sec: 116,809 | mfu: 54.65 | epoch: 1 | total time: 30.62m
+step 00113 (41.42%) | loss: 0.755205 | lrm: 1.00 | dt: 17955.42ms | tok/sec: 116,797 | mfu: 54.64 | epoch: 1 | total time: 30.92m
+step 00114 (41.82%) | loss: 0.756297 | lrm: 1.00 | dt: 17948.87ms | tok/sec: 116,840 | mfu: 54.66 | epoch: 1 | total time: 31.22m
+step 00115 (42.18%) | loss: 0.754790 | lrm: 1.00 | dt: 17997.01ms | tok/sec: 116,527 | mfu: 54.51 | epoch: 1 | total time: 31.52m
+step 00116 (42.55%) | loss: 0.761545 | lrm: 1.00 | dt: 17942.81ms | tok/sec: 116,879 | mfu: 54.68 | epoch: 1 | total time: 31.82m
+step 00117 (42.91%) | loss: 0.753172 | lrm: 1.00 | dt: 17936.08ms | tok/sec: 116,923 | mfu: 54.70 | epoch: 1 | total time: 32.12m
+step 00118 (43.30%) | loss: 0.742715 | lrm: 1.00 | dt: 18014.16ms | tok/sec: 116,416 | mfu: 54.46 | epoch: 1 | total time: 32.42m
+step 00119 (43.67%) | loss: 0.731506 | lrm: 1.00 | dt: 18007.15ms | tok/sec: 116,462 | mfu: 54.48 | epoch: 1 | total time: 32.72m
+step 00120 (44.03%) | loss: 0.729062 | lrm: 1.00 | dt: 17957.01ms | tok/sec: 116,787 | mfu: 54.64 | epoch: 1 | total time: 33.02m
+step 00121 (44.39%) | loss: 0.721944 | lrm: 1.00 | dt: 17903.04ms | tok/sec: 117,139 | mfu: 54.80 | epoch: 1 | total time: 33.31m
+step 00122 (44.79%) | loss: 0.718353 | lrm: 1.00 | dt: 17955.83ms | tok/sec: 116,795 | mfu: 54.64 | epoch: 1 | total time: 33.61m
+step 00123 (45.17%) | loss: 0.708363 | lrm: 1.00 | dt: 17981.00ms | tok/sec: 116,631 | mfu: 54.56 | epoch: 1 | total time: 33.91m
+step 00124 (45.53%) | loss: 0.705450 | lrm: 1.00 | dt: 17964.83ms | tok/sec: 116,736 | mfu: 54.61 | epoch: 1 | total time: 34.21m
+step 00125 (45.86%) | loss: 0.710100 | lrm: 1.00 | dt: 17975.00ms | tok/sec: 116,670 | mfu: 54.58 | epoch: 1 | total time: 34.51m
+step 00126 (46.22%) | loss: 0.709426 | lrm: 1.00 | dt: 17887.52ms | tok/sec: 117,241 | mfu: 54.85 | epoch: 1 | total time: 34.81m
+step 00127 (46.56%) | loss: 0.711559 | lrm: 1.00 | dt: 18009.82ms | tok/sec: 116,444 | mfu: 54.48 | epoch: 1 | total time: 35.11m
+step 00128 (46.92%) | loss: 0.717240 | lrm: 1.00 | dt: 18003.22ms | tok/sec: 116,487 | mfu: 54.50 | epoch: 1 | total time: 35.41m
+step 00129 (47.29%) | loss: 0.698584 | lrm: 1.00 | dt: 17913.87ms | tok/sec: 117,068 | mfu: 54.77 | epoch: 1 | total time: 35.71m
+step 00130 (47.66%) | loss: 0.702817 | lrm: 1.00 | dt: 17931.30ms | tok/sec: 116,954 | mfu: 54.71 | epoch: 1 | total time: 36.01m
+step 00131 (48.03%) | loss: 0.694040 | lrm: 1.00 | dt: 17971.00ms | tok/sec: 116,696 | mfu: 54.59 | epoch: 1 | total time: 36.31m
+step 00132 (48.41%) | loss: 0.696221 | lrm: 1.00 | dt: 17960.66ms | tok/sec: 116,763 | mfu: 54.63 | epoch: 1 | total time: 36.61m
+step 00133 (48.76%) | loss: 0.685189 | lrm: 1.00 | dt: 17965.08ms | tok/sec: 116,734 | mfu: 54.61 | epoch: 1 | total time: 36.91m
+step 00134 (49.12%) | loss: 0.689644 | lrm: 1.00 | dt: 17974.82ms | tok/sec: 116,671 | mfu: 54.58 | epoch: 1 | total time: 37.21m
+step 00135 (49.48%) | loss: 0.680562 | lrm: 1.00 | dt: 17889.15ms | tok/sec: 117,230 | mfu: 54.84 | epoch: 1 | total time: 37.50m
+step 00136 (49.85%) | loss: 0.685500 | lrm: 1.00 | dt: 17970.35ms | tok/sec: 116,700 | mfu: 54.60 | epoch: 1 | total time: 37.80m
+step 00137 (50.22%) | loss: 0.700225 | lrm: 1.00 | dt: 17971.65ms | tok/sec: 116,692 | mfu: 54.59 | epoch: 1 | total time: 38.10m
+step 00138 (50.59%) | loss: 0.719159 | lrm: 0.99 | dt: 17855.28ms | tok/sec: 117,452 | mfu: 54.95 | epoch: 1 | total time: 38.40m
+step 00139 (50.96%) | loss: 0.731991 | lrm: 0.98 | dt: 17990.00ms | tok/sec: 116,573 | mfu: 54.54 | epoch: 1 | total time: 38.70m
+step 00140 (51.31%) | loss: 0.730947 | lrm: 0.97 | dt: 17893.84ms | tok/sec: 117,199 | mfu: 54.83 | epoch: 1 | total time: 39.00m
+step 00141 (51.68%) | loss: 0.731783 | lrm: 0.97 | dt: 18014.69ms | tok/sec: 116,413 | mfu: 54.46 | epoch: 1 | total time: 39.30m
+step 00142 (52.07%) | loss: 0.721412 | lrm: 0.96 | dt: 17999.51ms | tok/sec: 116,511 | mfu: 54.51 | epoch: 1 | total time: 39.60m
+step 00143 (52.44%) | loss: 0.722877 | lrm: 0.95 | dt: 17940.14ms | tok/sec: 116,897 | mfu: 54.69 | epoch: 1 | total time: 39.90m
+step 00144 (52.80%) | loss: 0.732249 | lrm: 0.94 | dt: 18014.51ms | tok/sec: 116,414 | mfu: 54.46 | epoch: 1 | total time: 40.20m
+step 00145 (53.18%) | loss: 0.740726 | lrm: 0.94 | dt: 18040.20ms | tok/sec: 116,248 | mfu: 54.38 | epoch: 1 | total time: 40.50m
+step 00146 (53.56%) | loss: 0.741450 | lrm: 0.93 | dt: 17981.12ms | tok/sec: 116,630 | mfu: 54.56 | epoch: 1 | total time: 40.80m
+step 00147 (53.96%) | loss: 0.725602 | lrm: 0.92 | dt: 17920.79ms | tok/sec: 117,023 | mfu: 54.75 | epoch: 1 | total time: 41.10m
+step 00148 (54.34%) | loss: 0.735119 | lrm: 0.91 | dt: 18085.84ms | tok/sec: 115,955 | mfu: 54.25 | epoch: 1 | total time: 41.40m
+step 00149 (54.75%) | loss: 0.733011 | lrm: 0.91 | dt: 17973.14ms | tok/sec: 116,682 | mfu: 54.59 | epoch: 1 | total time: 41.70m
+step 00150 (55.12%) | loss: 0.715733 | lrm: 0.90 | dt: 18057.14ms | tok/sec: 116,139 | mfu: 54.33 | epoch: 1 | total time: 42.00m
+step 00151 (55.49%) | loss: 0.719074 | lrm: 0.89 | dt: 17987.93ms | tok/sec: 116,586 | mfu: 54.54 | epoch: 1 | total time: 42.30m
+step 00152 (55.85%) | loss: 0.725509 | lrm: 0.88 | dt: 17935.75ms | tok/sec: 116,925 | mfu: 54.70 | epoch: 1 | total time: 42.60m
+step 00153 (56.21%) | loss: 0.737035 | lrm: 0.88 | dt: 17915.12ms | tok/sec: 117,060 | mfu: 54.76 | epoch: 1 | total time: 42.90m
+step 00154 (56.57%) | loss: 0.750197 | lrm: 0.87 | dt: 17977.66ms | tok/sec: 116,653 | mfu: 54.57 | epoch: 1 | total time: 43.20m
+step 00155 (56.92%) | loss: 0.745503 | lrm: 0.86 | dt: 17938.53ms | tok/sec: 116,907 | mfu: 54.69 | epoch: 1 | total time: 43.49m
+step 00156 (57.26%) | loss: 0.741735 | lrm: 0.85 | dt: 17936.38ms | tok/sec: 116,921 | mfu: 54.70 | epoch: 1 | total time: 43.79m
+step 00157 (57.63%) | loss: 0.745922 | lrm: 0.85 | dt: 17999.73ms | tok/sec: 116,510 | mfu: 54.51 | epoch: 1 | total time: 44.09m
+step 00158 (58.00%) | loss: 0.740921 | lrm: 0.84 | dt: 17937.47ms | tok/sec: 116,914 | mfu: 54.70 | epoch: 1 | total time: 44.39m
+step 00159 (58.36%) | loss: 0.735650 | lrm: 0.83 | dt: 17933.72ms | tok/sec: 116,939 | mfu: 54.71 | epoch: 1 | total time: 44.69m
+step 00160 (58.76%) | loss: 0.747785 | lrm: 0.82 | dt: 17985.69ms | tok/sec: 116,601 | mfu: 54.55 | epoch: 1 | total time: 44.99m
+step 00161 (59.15%) | loss: 0.727257 | lrm: 0.82 | dt: 17945.84ms | tok/sec: 116,860 | mfu: 54.67 | epoch: 1 | total time: 45.29m
+step 00162 (59.51%) | loss: 0.712568 | lrm: 0.81 | dt: 17944.50ms | tok/sec: 116,868 | mfu: 54.67 | epoch: 1 | total time: 45.59m
+step 00163 (59.87%) | loss: 0.719658 | lrm: 0.80 | dt: 17997.32ms | tok/sec: 116,525 | mfu: 54.51 | epoch: 1 | total time: 45.89m
+step 00164 (60.21%) | loss: 0.712901 | lrm: 0.80 | dt: 17982.48ms | tok/sec: 116,621 | mfu: 54.56 | epoch: 1 | total time: 46.19m
+step 00165 (60.56%) | loss: 0.685970 | lrm: 0.79 | dt: 17922.80ms | tok/sec: 117,010 | mfu: 54.74 | epoch: 1 | total time: 46.49m
+step 00166 (60.92%) | loss: 0.701991 | lrm: 0.78 | dt: 17940.27ms | tok/sec: 116,896 | mfu: 54.69 | epoch: 1 | total time: 46.79m
+step 00167 (61.32%) | loss: 0.685632 | lrm: 0.77 | dt: 17968.74ms | tok/sec: 116,711 | mfu: 54.60 | epoch: 1 | total time: 47.09m
+step 00168 (61.68%) | loss: 0.677507 | lrm: 0.77 | dt: 17940.48ms | tok/sec: 116,894 | mfu: 54.69 | epoch: 1 | total time: 47.39m
+step 00169 (62.06%) | loss: 0.684818 | lrm: 0.76 | dt: 18011.65ms | tok/sec: 116,433 | mfu: 54.47 | epoch: 1 | total time: 47.69m
+step 00170 (62.43%) | loss: 0.673549 | lrm: 0.75 | dt: 17962.46ms | tok/sec: 116,751 | mfu: 54.62 | epoch: 1 | total time: 47.98m
+step 00171 (62.80%) | loss: 0.679733 | lrm: 0.74 | dt: 17976.57ms | tok/sec: 116,660 | mfu: 54.58 | epoch: 1 | total time: 48.28m
+step 00172 (63.16%) | loss: 0.689504 | lrm: 0.74 | dt: 17970.69ms | tok/sec: 116,698 | mfu: 54.59 | epoch: 1 | total time: 48.58m
+step 00173 (63.53%) | loss: 0.694670 | lrm: 0.73 | dt: 17940.42ms | tok/sec: 116,895 | mfu: 54.69 | epoch: 1 | total time: 48.88m
+step 00174 (63.89%) | loss: 0.694797 | lrm: 0.72 | dt: 17971.99ms | tok/sec: 116,690 | mfu: 54.59 | epoch: 1 | total time: 49.18m
+step 00175 (64.27%) | loss: 0.700587 | lrm: 0.71 | dt: 17991.19ms | tok/sec: 116,565 | mfu: 54.53 | epoch: 1 | total time: 49.48m
+step 00176 (64.63%) | loss: 0.711315 | lrm: 0.71 | dt: 17985.50ms | tok/sec: 116,602 | mfu: 54.55 | epoch: 1 | total time: 49.78m
+step 00177 (64.99%) | loss: 0.708544 | lrm: 0.70 | dt: 17966.99ms | tok/sec: 116,722 | mfu: 54.61 | epoch: 1 | total time: 50.08m
+step 00178 (65.31%) | loss: 0.709767 | lrm: 0.69 | dt: 17984.22ms | tok/sec: 116,610 | mfu: 54.55 | epoch: 1 | total time: 50.38m
+step 00179 (65.69%) | loss: 0.718836 | lrm: 0.69 | dt: 18024.47ms | tok/sec: 116,350 | mfu: 54.43 | epoch: 1 | total time: 50.68m
+step 00180 (66.03%) | loss: 0.714192 | lrm: 0.68 | dt: 17947.35ms | tok/sec: 116,850 | mfu: 54.67 | epoch: 1 | total time: 50.98m
+step 00181 (66.40%) | loss: 0.714013 | lrm: 0.67 | dt: 17917.80ms | tok/sec: 117,042 | mfu: 54.76 | epoch: 1 | total time: 51.28m
+step 00182 (66.76%) | loss: 0.712082 | lrm: 0.66 | dt: 17986.88ms | tok/sec: 116,593 | mfu: 54.55 | epoch: 1 | total time: 51.58m
+step 00183 (67.12%) | loss: 0.736859 | lrm: 0.66 | dt: 17916.67ms | tok/sec: 117,050 | mfu: 54.76 | epoch: 1 | total time: 51.88m
+step 00184 (67.50%) | loss: 0.730575 | lrm: 0.65 | dt: 18025.66ms | tok/sec: 116,342 | mfu: 54.43 | epoch: 1 | total time: 52.18m
+step 00185 (67.86%) | loss: 0.726726 | lrm: 0.64 | dt: 17977.65ms | tok/sec: 116,653 | mfu: 54.57 | epoch: 1 | total time: 52.48m
+step 00186 (68.23%) | loss: 0.720565 | lrm: 0.64 | dt: 17965.13ms | tok/sec: 116,734 | mfu: 54.61 | epoch: 1 | total time: 52.78m
+step 00187 (68.61%) | loss: 0.728888 | lrm: 0.63 | dt: 17964.35ms | tok/sec: 116,739 | mfu: 54.61 | epoch: 1 | total time: 53.08m
+step 00188 (68.97%) | loss: 0.725022 | lrm: 0.62 | dt: 18052.85ms | tok/sec: 116,167 | mfu: 54.35 | epoch: 1 | total time: 53.38m
+step 00189 (69.33%) | loss: 0.720401 | lrm: 0.61 | dt: 17941.55ms | tok/sec: 116,887 | mfu: 54.68 | epoch: 1 | total time: 53.68m
+step 00190 (69.70%) | loss: 0.718441 | lrm: 0.61 | dt: 18027.73ms | tok/sec: 116,329 | mfu: 54.42 | epoch: 1 | total time: 53.98m
+step 00191 (70.06%) | loss: 0.723159 | lrm: 0.60 | dt: 18065.27ms | tok/sec: 116,087 | mfu: 54.31 | epoch: 1 | total time: 54.28m
+step 00192 (70.44%) | loss: 0.711399 | lrm: 0.59 | dt: 17998.05ms | tok/sec: 116,521 | mfu: 54.51 | epoch: 1 | total time: 54.58m
+step 00193 (70.82%) | loss: 0.717520 | lrm: 0.58 | dt: 17969.71ms | tok/sec: 116,704 | mfu: 54.60 | epoch: 1 | total time: 54.88m
+step 00194 (71.18%) | loss: 0.696781 | lrm: 0.58 | dt: 18000.85ms | tok/sec: 116,502 | mfu: 54.50 | epoch: 1 | total time: 55.18m
+step 00195 (71.54%) | loss: 0.691595 | lrm: 0.57 | dt: 17990.82ms | tok/sec: 116,567 | mfu: 54.53 | epoch: 1 | total time: 55.48m
+step 00196 (71.92%) | loss: 0.698735 | lrm: 0.56 | dt: 17940.11ms | tok/sec: 116,897 | mfu: 54.69 | epoch: 1 | total time: 55.78m
+step 00197 (72.28%) | loss: 0.698386 | lrm: 0.55 | dt: 18021.39ms | tok/sec: 116,370 | mfu: 54.44 | epoch: 1 | total time: 56.08m
+step 00198 (72.65%) | loss: 0.697455 | lrm: 0.55 | dt: 18023.91ms | tok/sec: 116,353 | mfu: 54.43 | epoch: 1 | total time: 56.38m
+step 00199 (73.00%) | loss: 0.692311 | lrm: 0.54 | dt: 17935.37ms | tok/sec: 116,928 | mfu: 54.70 | epoch: 1 | total time: 56.68m
+step 00200 (73.36%) | loss: 0.694191 | lrm: 0.53 | dt: 17963.50ms | tok/sec: 116,745 | mfu: 54.62 | epoch: 1 | total time: 56.98m
+Step 00200 | Validation bpb: 0.2538
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:31,308 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:31,308 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:31,308 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:31,308 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:31,308 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:31,309 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:31,309 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+2026-08-06 13:03:31,310 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+2026-08-06 13:03:31,310 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+2026-08-06 13:03:31,310 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+2026-08-06 13:03:31,310 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+2026-08-06 13:03:31,310 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+2026-08-06 13:03:31,311 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+2026-08-06 13:03:31,311 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:31,311 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+2026-08-06 13:03:31,315 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+Final: 1707/2376 (71.84%)
+  ARC-Easy: 71.84%
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:33,312 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:33,312 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:33,312 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:33,312 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:33,312 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:33,312 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:33,312 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:33,313 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+2026-08-06 13:03:33,313 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+2026-08-06 13:03:33,313 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+2026-08-06 13:03:33,313 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+2026-08-06 13:03:33,313 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+2026-08-06 13:03:33,313 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+2026-08-06 13:03:33,313 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+2026-08-06 13:03:33,314 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+2026-08-06 13:03:33,314 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+Final: 683/1172 (58.28%)
+  ARC-Challenge: 58.28%
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:34,390 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:34,390 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:34,390 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:34,390 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:34,390 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:34,390 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:34,390 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:03:34,391 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:03:34,391 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:03:34,391 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:34,391 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:03:34,391 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:03:34,391 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:03:34,391 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:03:34,391 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:03:34,392 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Final: 5695/14042 (40.56%)
+  MMLU: 40.56%
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:54,293 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:54,293 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:54,293 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:54,293 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:54,293 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:03:54,294 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:54,294 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:03:54,294 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:03:54,294 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:03:54,294 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:03:54,294 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:03:54,294 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:03:54,295 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:03:54,295 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:03:54,295 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:03:54,296 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==================================================
+Final: 3/24 (12.50%)
+  GSM8K: 12.50%
+Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:04:32,454 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:04:32,454 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:04:32,455 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:04:32,455 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:04:32,455 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:04:32,455 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+2026-08-06 13:04:32,456 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+2026-08-06 13:04:32,456 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+2026-08-06 13:04:32,456 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+2026-08-06 13:04:32,456 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:04:32,456 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+2026-08-06 13:04:32,456 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+2026-08-06 13:04:32,457 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+2026-08-06 13:04:32,457 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+2026-08-06 13:04:32,458 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+2026-08-06 13:04:32,458 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==================================================
+Final: 1/24 (4.17%)
+  HumanEval: 4.17%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==================================================
+Final: 24/24 (100.00%)
+  SpellingBee: 100.00%
+Step 00200 | ChatCORE: 0.4071 | ChatCORE_cat: 0.4252
+step 00201 (73.73%) | loss: 0.692933 | lrm: 0.53 | dt: 17188.06ms | tok/sec: 122,012 | mfu: 57.08 | epoch: 1 | total time: 57.26m
+step 00202 (74.10%) | loss: 0.688717 | lrm: 0.52 | dt: 17309.29ms | tok/sec: 121,157 | mfu: 56.68 | epoch: 1 | total time: 57.55m
+step 00203 (74.47%) | loss: 0.688938 | lrm: 0.51 | dt: 17586.96ms | tok/sec: 119,244 | mfu: 55.79 | epoch: 1 | total time: 57.84m
+step 00204 (74.83%) | loss: 0.694167 | lrm: 0.50 | dt: 17752.22ms | tok/sec: 118,134 | mfu: 55.27 | epoch: 1 | total time: 58.14m
+step 00205 (75.18%) | loss: 0.696553 | lrm: 0.50 | dt: 17870.40ms | tok/sec: 117,353 | mfu: 54.90 | epoch: 1 | total time: 58.44m
+step 00206 (75.56%) | loss: 0.709195 | lrm: 0.49 | dt: 17993.65ms | tok/sec: 116,549 | mfu: 54.53 | epoch: 1 | total time: 58.74m
+step 00207 (75.92%) | loss: 0.707078 | lrm: 0.48 | dt: 18000.52ms | tok/sec: 116,505 | mfu: 54.50 | epoch: 1 | total time: 59.04m
+step 00208 (76.30%) | loss: 0.696967 | lrm: 0.47 | dt: 17980.26ms | tok/sec: 116,636 | mfu: 54.57 | epoch: 1 | total time: 59.34m
+step 00209 (76.64%) | loss: 0.691233 | lrm: 0.47 | dt: 17962.38ms | tok/sec: 116,752 | mfu: 54.62 | epoch: 1 | total time: 59.64m
+step 00210 (77.01%) | loss: 0.684767 | lrm: 0.46 | dt: 18001.81ms | tok/sec: 116,496 | mfu: 54.50 | epoch: 1 | total time: 59.94m
+step 00211 (77.36%) | loss: 0.701761 | lrm: 0.45 | dt: 18002.12ms | tok/sec: 116,494 | mfu: 54.50 | epoch: 1 | total time: 60.24m
+step 00212 (77.71%) | loss: 0.707872 | lrm: 0.45 | dt: 17989.56ms | tok/sec: 116,576 | mfu: 54.54 | epoch: 1 | total time: 60.54m
+step 00213 (78.10%) | loss: 0.708307 | lrm: 0.44 | dt: 17928.05ms | tok/sec: 116,976 | mfu: 54.72 | epoch: 1 | total time: 60.83m
+step 00214 (78.47%) | loss: 0.703667 | lrm: 0.43 | dt: 18012.45ms | tok/sec: 116,427 | mfu: 54.47 | epoch: 1 | total time: 61.14m
+step 00215 (78.84%) | loss: 0.710451 | lrm: 0.42 | dt: 17987.50ms | tok/sec: 116,589 | mfu: 54.54 | epoch: 1 | total time: 61.43m
+step 00216 (79.21%) | loss: 0.706669 | lrm: 0.42 | dt: 17950.39ms | tok/sec: 116,830 | mfu: 54.66 | epoch: 1 | total time: 61.73m
+step 00217 (79.57%) | loss: 0.700311 | lrm: 0.41 | dt: 17972.05ms | tok/sec: 116,689 | mfu: 54.59 | epoch: 1 | total time: 62.03m
+step 00218 (79.93%) | loss: 0.700577 | lrm: 0.40 | dt: 18028.12ms | tok/sec: 116,326 | mfu: 54.42 | epoch: 1 | total time: 62.33m
+step 00219 (80.31%) | loss: 0.704444 | lrm: 0.39 | dt: 17957.81ms | tok/sec: 116,782 | mfu: 54.63 | epoch: 1 | total time: 62.63m
+step 00220 (80.65%) | loss: 0.699788 | lrm: 0.39 | dt: 18006.14ms | tok/sec: 116,468 | mfu: 54.49 | epoch: 1 | total time: 62.93m
+step 00221 (81.02%) | loss: 0.688668 | lrm: 0.38 | dt: 17973.50ms | tok/sec: 116,680 | mfu: 54.59 | epoch: 1 | total time: 63.23m
+step 00222 (81.40%) | loss: 0.679301 | lrm: 0.37 | dt: 17972.05ms | tok/sec: 116,689 | mfu: 54.59 | epoch: 1 | total time: 63.53m
+step 00223 (81.76%) | loss: 0.682229 | lrm: 0.36 | dt: 17982.83ms | tok/sec: 116,619 | mfu: 54.56 | epoch: 1 | total time: 63.83m
+step 00224 (82.12%) | loss: 0.698063 | lrm: 0.36 | dt: 18084.99ms | tok/sec: 115,960 | mfu: 54.25 | epoch: 1 | total time: 64.13m
+step 00225 (82.49%) | loss: 0.707410 | lrm: 0.35 | dt: 18000.34ms | tok/sec: 116,506 | mfu: 54.50 | epoch: 1 | total time: 64.43m
+step 00226 (82.85%) | loss: 0.700852 | lrm: 0.34 | dt: 18063.92ms | tok/sec: 116,096 | mfu: 54.31 | epoch: 1 | total time: 64.73m
+step 00227 (83.24%) | loss: 0.706696 | lrm: 0.34 | dt: 18074.99ms | tok/sec: 116,025 | mfu: 54.28 | epoch: 1 | total time: 65.04m
+step 00228 (83.59%) | loss: 0.704573 | lrm: 0.33 | dt: 17960.25ms | tok/sec: 116,766 | mfu: 54.63 | epoch: 1 | total time: 65.34m
+step 00229 (83.96%) | loss: 0.714918 | lrm: 0.32 | dt: 18018.24ms | tok/sec: 116,390 | mfu: 54.45 | epoch: 1 | total time: 65.64m
+step 00230 (84.33%) | loss: 0.711318 | lrm: 0.31 | dt: 18088.85ms | tok/sec: 115,936 | mfu: 54.24 | epoch: 1 | total time: 65.94m
+step 00231 (84.67%) | loss: 0.699565 | lrm: 0.31 | dt: 17987.99ms | tok/sec: 116,586 | mfu: 54.54 | epoch: 1 | total time: 66.24m
+step 00232 (85.04%) | loss: 0.712965 | lrm: 0.30 | dt: 18061.60ms | tok/sec: 116,111 | mfu: 54.32 | epoch: 1 | total time: 66.54m
+step 00233 (85.41%) | loss: 0.697555 | lrm: 0.29 | dt: 18016.98ms | tok/sec: 116,398 | mfu: 54.45 | epoch: 1 | total time: 66.84m
+step 00234 (85.78%) | loss: 0.700400 | lrm: 0.28 | dt: 18104.64ms | tok/sec: 115,835 | mfu: 54.19 | epoch: 1 | total time: 67.14m
+step 00235 (86.13%) | loss: 0.703555 | lrm: 0.28 | dt: 18017.15ms | tok/sec: 116,397 | mfu: 54.45 | epoch: 1 | total time: 67.44m
+step 00236 (86.50%) | loss: 0.693371 | lrm: 0.27 | dt: 18019.05ms | tok/sec: 116,385 | mfu: 54.45 | epoch: 1 | total time: 67.74m
+step 00237 (86.87%) | loss: 0.686679 | lrm: 0.26 | dt: 18070.08ms | tok/sec: 116,056 | mfu: 54.29 | epoch: 1 | total time: 68.04m
+step 00238 (87.22%) | loss: 0.681183 | lrm: 0.26 | dt: 18008.27ms | tok/sec: 116,454 | mfu: 54.48 | epoch: 1 | total time: 68.34m
+step 00239 (87.57%) | loss: 0.679517 | lrm: 0.25 | dt: 18053.91ms | tok/sec: 116,160 | mfu: 54.34 | epoch: 1 | total time: 68.64m
+step 00240 (87.93%) | loss: 0.674960 | lrm: 0.24 | dt: 17991.60ms | tok/sec: 116,562 | mfu: 54.53 | epoch: 1 | total time: 68.94m
+step 00241 (88.30%) | loss: 0.675105 | lrm: 0.23 | dt: 17960.08ms | tok/sec: 116,767 | mfu: 54.63 | epoch: 1 | total time: 69.24m
+step 00242 (88.68%) | loss: 0.674592 | lrm: 0.23 | dt: 18025.53ms | tok/sec: 116,343 | mfu: 54.43 | epoch: 1 | total time: 69.54m
+step 00243 (89.02%) | loss: 0.686937 | lrm: 0.22 | dt: 17984.86ms | tok/sec: 116,606 | mfu: 54.55 | epoch: 1 | total time: 69.84m
+step 00244 (89.37%) | loss: 0.695976 | lrm: 0.21 | dt: 18047.23ms | tok/sec: 116,203 | mfu: 54.36 | epoch: 1 | total time: 70.14m
+step 00245 (89.76%) | loss: 0.694576 | lrm: 0.20 | dt: 17994.92ms | tok/sec: 116,541 | mfu: 54.52 | epoch: 1 | total time: 70.44m
+step 00246 (90.15%) | loss: 0.690034 | lrm: 0.20 | dt: 18034.66ms | tok/sec: 116,284 | mfu: 54.40 | epoch: 1 | total time: 70.74m
+step 00247 (90.52%) | loss: 0.686603 | lrm: 0.19 | dt: 18066.02ms | tok/sec: 116,082 | mfu: 54.31 | epoch: 1 | total time: 71.04m
+step 00248 (90.87%) | loss: 0.679759 | lrm: 0.18 | dt: 17947.14ms | tok/sec: 116,851 | mfu: 54.67 | epoch: 1 | total time: 71.34m
+step 00249 (91.24%) | loss: 0.683582 | lrm: 0.18 | dt: 18054.90ms | tok/sec: 116,154 | mfu: 54.34 | epoch: 1 | total time: 71.64m
+step 00250 (91.62%) | loss: 0.680918 | lrm: 0.17 | dt: 18076.68ms | tok/sec: 116,014 | mfu: 54.27 | epoch: 1 | total time: 71.95m
+step 00251 (91.98%) | loss: 0.658198 | lrm: 0.16 | dt: 18053.91ms | tok/sec: 116,160 | mfu: 54.34 | epoch: 1 | total time: 72.25m
+step 00252 (92.36%) | loss: 0.646667 | lrm: 0.15 | dt: 17957.49ms | tok/sec: 116,784 | mfu: 54.63 | epoch: 1 | total time: 72.55m
+step 00253 (92.72%) | loss: 0.645345 | lrm: 0.15 | dt: 17997.15ms | tok/sec: 116,526 | mfu: 54.51 | epoch: 1 | total time: 72.85m
+step 00254 (93.09%) | loss: 0.656835 | lrm: 0.14 | dt: 18076.30ms | tok/sec: 116,016 | mfu: 54.28 | epoch: 1 | total time: 73.15m
+step 00255 (93.46%) | loss: 0.656397 | lrm: 0.13 | dt: 18040.42ms | tok/sec: 116,247 | mfu: 54.38 | epoch: 1 | total time: 73.45m
+step 00256 (93.82%) | loss: 0.650677 | lrm: 0.12 | dt: 17998.79ms | tok/sec: 116,516 | mfu: 54.51 | epoch: 1 | total time: 73.75m
+step 00257 (94.19%) | loss: 0.649493 | lrm: 0.12 | dt: 18006.82ms | tok/sec: 116,464 | mfu: 54.49 | epoch: 1 | total time: 74.05m
+step 00258 (94.56%) | loss: 0.664602 | lrm: 0.11 | dt: 17937.10ms | tok/sec: 116,917 | mfu: 54.70 | epoch: 1 | total time: 74.35m
+step 00259 (94.90%) | loss: 0.665311 | lrm: 0.10 | dt: 17964.56ms | tok/sec: 116,738 | mfu: 54.61 | epoch: 1 | total time: 74.65m
+step 00260 (95.27%) | loss: 0.649032 | lrm: 0.09 | dt: 17952.09ms | tok/sec: 116,819 | mfu: 54.65 | epoch: 1 | total time: 74.95m
+step 00261 (95.65%) | loss: 0.655658 | lrm: 0.09 | dt: 18015.19ms | tok/sec: 116,410 | mfu: 54.46 | epoch: 1 | total time: 75.25m
+step 00262 (96.02%) | loss: 0.657369 | lrm: 0.08 | dt: 17968.77ms | tok/sec: 116,710 | mfu: 54.60 | epoch: 1 | total time: 75.55m
+step 00263 (96.37%) | loss: 0.649442 | lrm: 0.07 | dt: 18037.75ms | tok/sec: 116,264 | mfu: 54.39 | epoch: 1 | total time: 75.85m
+step 00264 (96.80%) | loss: 0.646590 | lrm: 0.06 | dt: 17967.31ms | tok/sec: 116,720 | mfu: 54.60 | epoch: 1 | total time: 76.15m
+step 00265 (97.14%) | loss: 0.651094 | lrm: 0.06 | dt: 18097.28ms | tok/sec: 115,882 | mfu: 54.21 | epoch: 1 | total time: 76.45m
+step 00266 (97.50%) | loss: 0.643766 | lrm: 0.05 | dt: 17971.88ms | tok/sec: 116,690 | mfu: 54.59 | epoch: 1 | total time: 76.75m
+step 00267 (97.86%) | loss: 0.654173 | lrm: 0.04 | dt: 18004.87ms | tok/sec: 116,476 | mfu: 54.49 | epoch: 1 | total time: 77.05m
+step 00268 (98.21%) | loss: 0.670288 | lrm: 0.04 | dt: 18044.04ms | tok/sec: 116,224 | mfu: 54.37 | epoch: 1 | total time: 77.35m
+step 00269 (98.56%) | loss: 0.675109 | lrm: 0.03 | dt: 18004.17ms | tok/sec: 116,481 | mfu: 54.49 | epoch: 1 | total time: 77.65m
+step 00270 (98.91%) | loss: 0.670789 | lrm: 0.02 | dt: 18009.26ms | tok/sec: 116,448 | mfu: 54.48 | epoch: 1 | total time: 77.95m
+step 00271 (99.26%) | loss: 0.662236 | lrm: 0.01 | dt: 18099.21ms | tok/sec: 115,869 | mfu: 54.21 | epoch: 1 | total time: 78.25m
+step 00272 (99.65%) | loss: 0.665554 | lrm: 0.01 | dt: 18105.09ms | tok/sec: 115,832 | mfu: 54.19 | epoch: 1 | total time: 78.55m
+step 00273 (100.05%) | loss: 0.672556 | lrm: -0.00 | dt: 18070.69ms | tok/sec: 116,052 | mfu: 54.29 | epoch: 2 | total time: 78.85m
+Step 00273 | Validation bpb: 0.2467
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:29,698 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:29,698 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:29,698 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:29,699 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:29,699 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:29,699 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:29,699 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:29,699 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+2026-08-06 13:28:29,700 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+2026-08-06 13:28:29,700 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+2026-08-06 13:28:29,701 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+2026-08-06 13:28:29,701 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+2026-08-06 13:28:29,701 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+2026-08-06 13:28:29,701 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+2026-08-06 13:28:29,701 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+2026-08-06 13:28:29,701 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Easy' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Easy/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:17 2026).
+Final: 1730/2376 (72.81%)
+  ARC-Easy: 72.81%
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:31,601 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:31,601 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:31,601 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:31,601 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:31,601 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:31,601 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:31,601 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:31,601 - datasets.load - WARNING - Using the latest cached version of the dataset since allenai/ai2_arc couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+2026-08-06 13:28:31,602 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+2026-08-06 13:28:31,602 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+2026-08-06 13:28:31,602 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+2026-08-06 13:28:31,602 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+2026-08-06 13:28:31,602 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+2026-08-06 13:28:31,602 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+2026-08-06 13:28:31,602 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+2026-08-06 13:28:31,603 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'ARC-Challenge' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/allenai___ai2_arc/ARC-Challenge/0.0.0/210d026faf9955653af8916fad021475a3f00453 (last modified on Tue Jun  2 14:22:18 2026).
+Final: 681/1172 (58.11%)
+  ARC-Challenge: 58.11%
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:32,644 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:32,644 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:32,644 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:32,644 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:32,644 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:32,644 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:32,644 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:32,644 - datasets.load - WARNING - Using the latest cached version of the dataset since cais/mmlu couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:28:32,644 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:28:32,644 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:28:32,645 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:28:32,645 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:28:32,645 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:28:32,645 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:28:32,645 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:28:32,645 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'all' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/cais___mmlu/all/0.0.0/c30699e8356da336a370243923dbaf21066bb9fe (last modified on Tue Jun  2 14:05:20 2026).
+Final: 5677/14042 (40.43%)
+  MMLU: 40.43%
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:52,649 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:52,649 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:28:52,650 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:28:52,650 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:28:52,650 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:52,650 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:52,650 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:52,650 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:28:52,651 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:28:52,651 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:28:52,651 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/gsm8k couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:28:52,651 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:28:52,651 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:28:52,652 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:28:52,652 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+2026-08-06 13:28:52,652 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'main' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___gsm8k/main/0.0.0/740312add88f781978c0658806c59bc2815b9866 (last modified on Tue Jun  2 14:05:20 2026).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==================================================
+Final: 3/24 (12.50%)
+  GSM8K: 12.50%
+Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:29:30,191 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:29:30,191 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:29:30,191 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:29:30,191 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:29:30,191 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:29:30,192 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+2026-08-06 13:29:30,192 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+2026-08-06 13:29:30,192 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+2026-08-06 13:29:30,192 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+2026-08-06 13:29:30,192 - datasets.load - WARNING - Using the latest cached version of the dataset since openai/openai_humaneval couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+2026-08-06 13:29:30,193 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+2026-08-06 13:29:30,193 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+2026-08-06 13:29:30,193 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+2026-08-06 13:29:30,193 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+2026-08-06 13:29:30,193 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+2026-08-06 13:29:30,194 - datasets.packaged_modules.cache.cache - WARNING - Found the latest cached dataset configuration 'openai_humaneval' at /media/ubuntu/D1/zsj/nanochat/nanochat/hf_cache/datasets/openai___openai_humaneval/openai_humaneval/0.0.0/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544 (last modified on Tue Jun  2 14:23:02 2026).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==================================================
+Final: 0/24 (0.00%)
+  HumanEval: 0.00%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==================================================
+Final: 24/24 (100.00%)
+  SpellingBee: 100.00%
+Step 00273 | ChatCORE: 0.4016 | ChatCORE_cat: 0.4282
+2026-08-06 13:30:33,915 - nanochat.checkpoint_manager - INFO - Saved optimizer state to: /media/ubuntu/D1/zsj/nanochat/nanochat/nanochat_cache/chatsft_checkpoints/d32-a800-bf16-L-math15/optim_000273_rank6.pt
+2026-08-06 13:30:33,939 - nanochat.checkpoint_manager - INFO - Saved optimizer state to: /media/ubuntu/D1/zsj/nanochat/nanochat/nanochat_cache/chatsft_checkpoints/d32-a800-bf16-L-math15/optim_000273_rank4.pt
+2026-08-06 13:30:34,088 - nanochat.checkpoint_manager - INFO - Saved optimizer state to: /media/ubuntu/D1/zsj/nanochat/nanochat/nanochat_cache/chatsft_checkpoints/d32-a800-bf16-L-math15/optim_000273_rank1.pt
+2026-08-06 13:30:34,112 - nanochat.checkpoint_manager - INFO - Saved optimizer state to: /media/ubuntu/D1/zsj/nanochat/nanochat/nanochat_cache/chatsft_checkpoints/d32-a800-bf16-L-math15/optim_000273_rank5.pt
+2026-08-06 13:30:34,119 - nanochat.checkpoint_manager - INFO - Saved optimizer state to: /media/ubuntu/D1/zsj/nanochat/nanochat/nanochat_cache/chatsft_checkpoints/d32-a800-bf16-L-math15/optim_000273_rank7.pt
+2026-08-06 13:30:34,123 - nanochat.checkpoint_manager - INFO - Saved optimizer state to: /media/ubuntu/D1/zsj/nanochat/nanochat/nanochat_cache/chatsft_checkpoints/d32-a800-bf16-L-math15/optim_000273_rank2.pt
+2026-08-06 13:30:34,174 - nanochat.checkpoint_manager - INFO - Saved optimizer state to: /media/ubuntu/D1/zsj/nanochat/nanochat/nanochat_cache/chatsft_checkpoints/d32-a800-bf16-L-math15/optim_000273_rank3.pt
+2026-08-06 13:30:50,683 - nanochat.checkpoint_manager - INFO - Saved model parameters to: /media/ubuntu/D1/zsj/nanochat/nanochat/nanochat_cache/chatsft_checkpoints/d32-a800-bf16-L-math15/model_000273.pt
+2026-08-06 13:30:50,684 - nanochat.checkpoint_manager - INFO - Saved metadata to: /media/ubuntu/D1/zsj/nanochat/nanochat/nanochat_cache/chatsft_checkpoints/d32-a800-bf16-L-math15/meta_000273.json
+2026-08-06 13:30:53,133 - nanochat.checkpoint_manager - INFO - Saved optimizer state to: /media/ubuntu/D1/zsj/nanochat/nanochat/nanochat_cache/chatsft_checkpoints/d32-a800-bf16-L-math15/optim_000273_rank0.pt
+Peak memory usage: 61091.12MiB
+Total training time: 78.85m
+Minimum validation bpb: 0.2467

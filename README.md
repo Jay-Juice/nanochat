@@ -15,7 +15,8 @@ runs:
 - GSM8K RL diagnostics ([report](docs/GSM8K_RL_DIAGNOSTICS_2026-08-01.md));
 - vanilla On-Policy Distillation with a larger nanochat teacher
   ([runbook](docs/OPD_A800.md));
-- optional custom math data and separate output model tags for SFT.
+- optional custom math data and separate output model tags for SFT
+  ([D32 Math SFT + RL recipe and results](docs/D32_MATH_SFT_RL.md)).
 
 `master` is the stable integrated branch. Completed experiment versions are
 recorded with Git tags; temporary feature branches are deleted after merge.
